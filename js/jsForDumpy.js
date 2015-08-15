@@ -14,7 +14,7 @@ Ball.prototype =
 
     draw: function(){console.log("Ball ball drawn with radius:" + this._radius + " and color: " + this._color)},
     inc: function(){ this._radius += this.INCREMENTATION_STEP }
-}
+};
 
 new Ball({ radius:100, color:"red"});
 
@@ -35,7 +35,7 @@ StripedBall.prototype =
     {
         return this._ball.inc();
     }
-}
+};
 
 function SpeckledBall( ball )
 {

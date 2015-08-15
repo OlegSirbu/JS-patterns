@@ -202,17 +202,6 @@ a.sayHi('Hello');
 a.name = 'a1';
 
 
-function ClassA(){
-	this.name = '111';
-}
-ClassA.prototype.say = function (){
-	console.log('aaa');
-}
-function ClassB(){}
-inherit(ClassB,ClassA);
-var a1 = new ClassB();
-a1.say();
-a1.name = 'w';
 function inherit(child,parent){
 	debugger;
 	var F = function () {};
@@ -413,7 +402,7 @@ var createHelloFunction = function(name) {
 
       	return function () {
       		// c++;
-      		var r = 0
+      		var r = 0;
       		r++;
       		console.log('r',r);
       		// console.log('c',c);
@@ -459,7 +448,7 @@ function f (){
 	console.log(this.x);
 }
 
-var b = f.bind({x:3})
+var b = f.bind({x:3});
 b();
 
 function fBind(y,z) {return console.log(this.x+y+z);}
@@ -812,12 +801,12 @@ function makeBuffer(){
 var buffer = makeBuffer();
 // добавить значения к буферу
 buffer('Замыкания');
-buffer()
+buffer();
 
 buffer(' Использовать');
 buffer(' Нужно!');
 
-buffer()
+buffer();
 
 var users = [{
   name: "Вася",
@@ -852,13 +841,11 @@ function SomeFunction () {
   var instance;
   SomeFunction = function () {
     return instance;
-  }
+  };
   this.property1 = 'value';
   this.property2 = 'value';
   instance = this;
 }
-
-
 function SomeFunction () {
    if (typeof (SomeFunction.instance) == 'object') {
      return SomeFunction.instance;
