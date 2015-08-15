@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<title>onbeforeunload test</title>
+<script type="text/javascript"><!--
+window.onbeforeunload = function() {
+  // in Firefox and Netscape 7.2+ the setTimeout or setInterval do not wait 
+  // to be executed until after the user clicks one of the buttons in the 
+  // confirm()-like box.
+
+  //setTimeout("alert('hi from setTimeout()');",500);
+  // setTimeout() and setInterval() aren't called when ok is clicked in 
+  // IE5-6/Win, but is called in IE7 when the time is short, but not when 
+  // it's longer, like 500 (a half second).
+  window.unloadTimer = setTimeout("alert('hi from setInterval()');",500);
+  window.onunload = function() {(window.unloadTimer);}
+  return 'onbeforeunload testing';
+}
+// -->
+</script>
+</head>
+<body>
+
+<h1>onbeforeunload test</h1>
+
+</body>
+</html>
