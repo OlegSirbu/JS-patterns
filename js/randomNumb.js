@@ -13,7 +13,6 @@ function Rand() {
 		}
 		createRandVal();
 		function addRandValue(){
-			debugger
 			var hasEq = false;
 			if(newArr.length == 0){
 				newArr.push(randomVal);

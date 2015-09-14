@@ -48,8 +48,6 @@ function arrayToList (arr) {
 }
 
 arrayToList(['A','B','C']);
-
-
 //10
 function deepEquel(a,b){
 	for( var x in a){
@@ -71,7 +69,6 @@ deepEquel(objEq, objEq);
 //11
 
 function svert(arrays){
-	
 	var newArray=[];
 	arrays.forEach(function(val,i,arr){
 		debugger

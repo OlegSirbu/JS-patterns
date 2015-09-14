@@ -192,7 +192,6 @@ function  ClassA(name) {
 }
 ClassA.prototype.sayHi = function (mes) {
 	console.log(mes);
-	debugger;
 }
 function ClassB(argument) {}
 ClassB.prototype = new ClassA();
@@ -393,27 +392,27 @@ var createHelloFunction = function(name) {
 	// debugger
 	var c = 0;
    return function() {
-   	  	// console.log('c',c);
-		// console.log('Hello, ' + name);
+   		c++;
+   	  	console.log('c',c);
+		console.log('Hello, ' + name);
       return function(){
-      	// c++;
-      	// console.log('c',c);
-      	// console.log('!!! ' + name+'!!!');
-
+      	c++;
+      	console.log('c',c);
+      	console.log('!!! ' + name+'!!!');
       	return function () {
-      		// c++;
+      		c++;
       		var r = 0;
       		r++;
       		console.log('r',r);
-      		// console.log('c',c);
+      		console.log('c',c);
       	};
       };
    };
 }
 var sayHelloHabrahabr = createHelloFunction('Habrahabr');
-// sayHelloHabrahabr();
-// sayHelloHabrahabr()();
-// sayHelloHabrahabr()()();
+sayHelloHabrahabr();
+sayHelloHabrahabr()();
+sayHelloHabrahabr()()();
 console.clear();
 
 // (function(){
@@ -517,7 +516,7 @@ foo.increment();
 foo.get(); // 5
 foo.ab()
 
-function  checkDiffState(a,b) {
+function checkDiffState(a,b) {
 	if(a.lenght === b.lenght){
 		return false;
 	}
@@ -568,9 +567,6 @@ $('div').tooltip({
   foo : 'bar'
 });
 //плагин JQ
-
-
-
 
 function min(x,y){
 	if(x<y){
@@ -745,8 +741,6 @@ if(n > 0){
 }
 
 console.log(str2.repeatText(3))
-
-
 
 var fullname = 'John Doe';
 var obj = {
@@ -935,15 +929,12 @@ Vector.prototype.getX = function(){
 Vector.prototype.getY = function(){
 	return this.y;
 }
-
 Vector.prototype.plus = function(vector){
-	
 	this.x += vector.x;
 	this.y += vector.y;
 	debugger;
 }
 Vector.prototype.minus = function(vector){
-	
 	this.x -= vector.x;
 	this.y -= vector.y;
 	debugger;
@@ -954,22 +945,20 @@ vector.getX();
 vector.plus(new Vector(2,3));
 vector.minus(new Vector(1,1));
 
-
 function Bevarage(name, temprature){
-	this.name = name;
-	this.temprature = temprature;
+	this.name = name || "name";
+	this.temprature = temprature || "undefined";
 }
 Bevarage.prototype.drink = function(){
-	console.log('I`m drinking'+ this.name);
+	console.log('I`m drinking '+ this.name + " "+ this.temprature);
 };
-
-function Coffee(type){
-	Bevarage.call(this, 'coffee','hot');
+function Coffee(name, type){
+	Bevarage.call(this, name, type);
 	this.type = type;
 }
 Coffee.prototype = Object.create(Bevarage.prototype);
 Coffee.prototype.sip = function(){
-	console.log('Sipping some '+this.name+''+this.type);
+	console.log('Sipping some '+this.name+' '+this.type);
 }
 var water = new Bevarage('water','cold');
 var coffee = new Coffee('coffee','hot');
@@ -987,3 +976,17 @@ var sum = function (x,y) {
 }
 var suc = sum.bind(null,1);
 suc(3);
+
+var Pers = {
+	const: function(name,age){
+		debugger
+		this.name = name;
+		this.age = age;
+		return this;
+	},
+	get: function(){
+		debugger
+		console.log(this.name+"_"+ this.age);
+	}
+}
+var per = Object.create(Pers).const('Oleg','27')

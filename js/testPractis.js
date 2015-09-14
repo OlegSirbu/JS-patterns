@@ -141,3 +141,212 @@ bar = [1, 2, 3].concat(foo); // 1, 2, 3, 4, 5, 6
 // Клонирование массива
 var foo = [1, 2, 3];
 var bar = foo.slice(0); // bar = [1, 2, 3]
+
+function f(a){
+  return this.x + a;
+}
+var o = {x:1}
+var g = f.bind(o);
+g(3);
+
+
+var reduceArray = [1,2,3,4,5]
+console.log(reduceArray.reduce(function(x,y){return x+y} ))
+
+
+function contSeq(arg){
+  return function() {
+var newArg, sum;
+  
+  if(arg !== newArg){
+    newArg = arg; 
+  }
+
+  var a = arg[arg.length-1] - arg[arg.length-2];
+  debugger
+  sum = arg[arg.length-1] + a;
+  newArg.push(sum);
+  
+  console.log(sum)
+  console.log(newArg);
+  }
+  
+}
+
+var mySeq = contSeq([1,4,7,10])
+mySeq()
+mySeq()
+
+
+
+function min(x,y){
+  if(x<y){
+    return x;
+  }else if(x>y){
+    return y;
+  } else{
+    return  x+' = '+ y;
+  }
+}
+
+function isEven(x){
+  var y = Math.abs(x);
+  if(y%2==1){
+    return false;
+  }
+  return true;
+}
+
+function countBs(x,y){
+  var arr = x.split(''),
+    i=0;
+    countB=0;
+  for (i in arr) {
+    if(arr[i] === (y)){
+      countB++;
+    }
+  }
+  return countB;
+}
+
+
+var number = 0;
+var str='';
+while (number <= 7) {
+  // console.log(str+='#');
+  number++;
+}
+
+function FizzBuzz(){
+  var num = 0;
+  while(num <= 99){
+    
+    if((num % 5 == 0) && (num % 3 == 0)) {
+      // console.log("FizzBuzz");
+    }else if(num % 5 == 0) {
+      // console.log("Buzz");
+    }else if(num % 3 == 0){
+      // console.log("Fizz");
+    } else {
+      // console.log(num);
+    }
+    num++;
+  }
+}
+FizzBuzz();
+
+
+function min(x,y){
+  if(x<y){
+    return x;
+  } else if (x>y) {
+    return y;
+  } else {
+    return  x+' = '+ y;
+  }
+}
+
+function countBs(x,y){
+  var arr = x.split(''),
+    i=0;
+    countB=0;
+  for (i in arr) {
+    if(arr[i] === (y)){
+      countB++;
+    }
+  }
+  return countB;
+}
+
+
+var number = 0;
+var str='';
+while (number <= 7) {
+  // console.log(str+='#');
+  number++;
+}
+
+function FizzBuzz(){
+  var num = 0;
+  while(num <= 99){
+    if((num % 5 == 0) && (num % 3 == 0)) {
+      // console.log("FizzBuzz");
+    }else if(num % 5 == 0) {
+      // console.log("Buzz");
+    }else if(num % 3 == 0){
+      // console.log("Fizz");
+    } else {
+      // console.log(num);
+    }
+    num++;
+  }
+}
+FizzBuzz();
+
+
+function chess(x,y){
+  var str='',
+    pr='__',
+    reh ='#';
+
+  for (var i = 0; i < x; i++) {
+    for (var j = 0; j < y; j++) {
+      if(i%2==0){
+        (j%2==0) ?str += pr
+            :str += reh;
+      } else{
+        (j%2==0)? str += reh
+            : str += pr;
+      }
+    };
+    str+='/n';
+  };
+  
+  return str;
+}
+chess(4,4);
+
+function isEven(a){
+  if(a%2){
+    console.log('false')
+  } else {
+    console.log('true')
+  }
+
+}
+isEven(50)
+isEven(75)
+
+
+function countsB(str){
+    var contB=0;
+    str.split('').forEach(function(v,i,a){
+      if(a[i] == 'b'){
+        contB++;
+      }     
+    });
+    return contB;
+}
+countsB('abfb');
+
+function a(){
+  var c = 0;
+  return function(){
+    c++
+    console.log("c++", c);
+  }
+}
+var int1 = a()
+int1()//1
+int1()//2
+int1()//3
+
+Array.prototype.reverseMy = function(){
+debugger
+var newAr =[]
+this.forEach(function(val,i,arr){
+  newAr.unshift(val);
+})
+return newAr;
+};
+[1,2,3].reverseMy()
