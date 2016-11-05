@@ -1,4 +1,19 @@
+Number.prototype.plus = function (x) {
+	return this + x;
+}
 
+Number.prototype.minus = function (b) {
+	return this - b;
+}
+
+var a = (5).plus(3).minus(6); //2
+
+function  add(x) {
+	return function (b) {
+		return x+b;
+			}
+}
+var a = add(2)(3); //5
 //7
 function range(a,b) {
 	var array=[];

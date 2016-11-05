@@ -1,5 +1,41 @@
 // JavaScript паттерны… для чайников
+function classAnimal(name) {
+this.name = name;
+this.getName = function(){
+    console.log(this.name);
+    return this.name;
+}
+}
+var animal1 = new classAnimal('rabit');
+var animal2 = new classAnimal('dog');
 
+animal1.getName();
+animal2.getName();
+
+animal1.getName.call(animal2);
+
+var ctx = {
+    'en' : 'Hello',
+    'fr' : 'Bonjour'
+};
+
+var sayHello = function(lang, name){
+    for(var key in ctx){
+        if(ctx[key] === lang){
+            console.log(ctx[key] + ' ' + name);
+        }
+    }
+
+};
+sayHello('en', 'Bill');
+
+Array.prototype.smt = function(){
+    var rev = this.reverse();
+    console.log(rev);
+    // this.
+}
+
+[123].smt()
 
 function Ball( param )
 {
